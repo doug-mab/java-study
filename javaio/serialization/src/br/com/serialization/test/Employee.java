@@ -22,10 +22,14 @@ class Employee implements Serializable {
 	}
 	
 	public int getAge() {
-		return age;
+		return age + 1;
 	}
 	
 	public Date getHiringDate() {
 		return hiringDate;
+	}
+	
+	public String getFullName() {
+		return "hey";
 	}
 }

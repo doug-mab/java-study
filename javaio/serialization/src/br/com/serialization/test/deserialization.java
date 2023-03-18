@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 
 public class deserialization {
 
-	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		ObjectInputStream ios = new ObjectInputStream(new FileInputStream("employee.ser"));
 		
 		Employee e = (Employee) ios.readObject();
