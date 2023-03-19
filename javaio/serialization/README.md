@@ -35,7 +35,7 @@ assim como qualquer outro Stream, é preciso fechar depois de usar.
 oos.close();
 ```
 
-## java.io.ObjectInputStreamm
+## java.io.ObjectInputStream
 **ObjectInputStream** irá desserializar um fluxo de bytes, ou seja, transformar um fluxo de bytes num objeto.
 
 **ObjectInputStream** recebe um **InputStream** como argumento do constructor.
@@ -65,7 +65,7 @@ Entretanto, esse método joga uma exceção checada (Checked Exceptions) `ClassN
 
 Assim como todo Stream, devemos fechar após o uso.
 
-```
+```java
 ios.close();
 ```
 
