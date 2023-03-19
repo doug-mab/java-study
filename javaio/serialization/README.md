@@ -50,7 +50,7 @@ Socket sock = new Socket("localhost", 15000);
 ObjectInputStream ois2 = new ObjectInputStream(sock.getInputStream());
 ```
 
-Assim como no **ObjectOututStream**, **ObjectInputStream** também tem seus [métodos de leitura mais específicos](https://docs.oracle.com/javase/7/docs/api/java/io/ObjectInputStream.html "Class ObjectInputStream"), mas o mais genérico é o `readObject()`.
+Assim como no **ObjectOutputStream**, **ObjectInputStream** também tem seus [métodos de leitura mais específicos](https://docs.oracle.com/javase/7/docs/api/java/io/ObjectInputStream.html "Class ObjectInputStream"), mas o mais genérico é o `readObject()`.
 
 Digamos que serializamos uma classe Client no arquivo "example.ser".
 
