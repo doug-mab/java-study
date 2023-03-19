@@ -52,9 +52,9 @@ ObjectInputStream ois2 = new ObjectInputStream(sock.getInputStream());
 
 Assim como no **ObjectOututStream**, **ObjectInputStream** também tem seus [métodos de leitura mais específicos](https://docs.oracle.com/javase/7/docs/api/java/io/ObjectInputStream.html "Class ObjectInputStream"), mas o mais genérico é o `readObject()`.
 
-Digamos que serializamos uma classe Client no arquivo "example.ser"
+Digamos que serializamos uma classe Client no arquivo "example.ser".
 
-ao desserializar essa classe para uma variável, é necessário usar um type casting para dizer que esse Object é um Client
+Ao desserializar essa classe para uma variável, é necessário usar um type casting para dizer que esse Object é um Client
 
 ```java
 Client clint = (Client) ios.readObject();
@@ -95,3 +95,25 @@ class Client implements Serializable {
 ```
 
 Ao manter o mesmo **serialVersionUID**, o Java não vai reclamar de nenhuma imcompatibilidade, então é recomendado que você o mude apenas quando mudar algo que pode quebrar em usos antigos, como por exemplo a remoção de um método.
+
+## Hierarquia e Agregações
+
+Quando temos uma classe que precisa ser serializada, mas faz parte de uma hierarquia, a classe de mais alto nivel deve implementar a interface **Serializable**. Desse modo, todos os seus filhos irão ser serializáveis.
+
+Outra questão é que, caso você tenha uma classe, que recebe outra classe criada como atributo, você irá receber a exceção `NotSerializableException`.
+
+Há duas maneiras de evitar isso.
+
+1. você implementa a interface Serializable nessa classe.
+
+2. vocẽ usa a keyword `transient` nessa classe.
+
+```java
+class Client implements Serializable {
+	private transient Address address;
+	
+	// Resto do código
+}
+```
+
+Essa keyword faz com que o atributo não seja serializado, ou seja, ele vai ser salvo como `null`. Por isso deve ser usado apenas quando esse atributo não é essencial.
