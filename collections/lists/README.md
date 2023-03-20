@@ -49,7 +49,7 @@ for (int i = 0; i < strArr.length; i++) {
 }
 ```
 
-Caso você tente acessar um index fora da largura da array, você vai receber uma excessão `IndexOutOfBoundsException`
+Caso você tente acessar um index fora da largura da array, você vai receber uma excessão `IndexOutOfBoundsException`.
 
 O problema das arrays tradicionais é que você está preso à largura que você escolheu, você até poderia criar uma nova array maior e passar esses elementos para ela, mas isso seria trabalhoso e repetitivo toda vez que você precisasse de mais espaço.
 
@@ -95,7 +95,7 @@ Você também pode acessar a largura da **ArrayList** através do método `size(
 Existem outros métodos como `replaceAll()`, `contains()`, `clear()`, entre outros. Sinta-se livre para explorar a [documentação](https://docs.oracle.com/javase/8/docs/api/java/util/List.html "Interface List<E>") e descobrir novos métodos e utilidades.
 
 ## LinkedList
-**LinkedList** usa os mesmos métodos da classe **ArrayList** pois ambos são implementações da interface **List**, o que muda entre um e outro é como ambos funcionam.
+**LinkedList** usa os mesmos métodos da classe **ArrayList** pois ambos são implementações da interface **List**, o que muda entre uma e outra é como ambos funcionam.
 
 (Espero que entendam minhas ilustrações, estou bem longe de ser um designer ksks)
 <img src="./images/array-list.png" width="400px" alt="Representação de um ArrayList" title="Representação de um ArrayList" /> 
@@ -104,9 +104,9 @@ Como podemos ver, uma **ArrayList** tem seu elemento posicionado por um index, e
 
 <img src="./images/linked-list.png" width="600px" alt="Representação de um LinkedList" title="Representação de um LinkedList" /> 
 
-Já no LinkedList seguimos uma corrente de elementos. O elemento com o HEAD é o primeiro elemento dessa lista, e todos os elementos sabem quem é seu elemento sucessor e antecessor, e o último elemento tem `null` como seu sucessor.
+Já na **LinkedList** seguimos uma corrente de elementos. O elemento com o HEAD é o primeiro elemento dessa lista, e todos os elementos sabem quem é seu elemento sucessor e antecessor, já o último elemento tem `null` como seu sucessor.
 
-Diferente do ArrayList que acessamos o elemento correspondente ao index, apesar de acessarmos um elemento através de um index, na verdade ele está iterando entre os elementos até chegar na posição que desejamos.
+Diferente da ArrayList que acessamos o elemento correspondente ao index, apesar de acessarmos um elemento através de um index, na verdade ela está iterando entre os elementos até chegar na posição que desejamos.
 
 É um loop de o elemento atual acessando o seu próximo elemento até chegarmos na posição que pedimos. Mas todo esse processo parece ser lento, então qual é a vantagem disso?
 
@@ -114,7 +114,7 @@ Diferente do ArrayList que acessamos o elemento correspondente ao index, apesar 
 
 Ambos tem seus casos de uso.
 
-Apesar de **ArrayList** ser de fácil acesso aos elementos, ele tem um desempenho não muito satisfatório quando falamos de removeção de elementos.
+Apesar de **ArrayList** ser de fácil acesso aos elementos, ela tem um desempenho não muito satisfatório quando falamos de removeção de elementos.
 
 Digamos que precisamos remover o elemento correspondente ao index 2 da nossa **ArrayList**.
 
@@ -128,17 +128,17 @@ Já na **LinkedList**, esse processo é muito mais simples.
 
 <img src="./images/linked-list-remove.png" width="600px" alt="Processo de reposicionamento de uma LinkedList" title="Processo de reorganização de um LinkedList" /> 
 
-Baseado na imagem, o que acontece é que quando removemos o elemento na posição 2 da **LinkedList***, ele vai chegar na posição anterior (posição 1) e falar: "Seu sucessor não é mais o Item 492 (posição 2), agora é o Item 016 (posição 3)". A mesma coisa é feita na posição seguinte do elemento removido, avisando que seu elemento antecessor foi mudado.
+Baseado na imagem, o que acontece é que quando removemos o elemento na posição 2 da **LinkedList**, ele vai chegar na posição anterior (posição 1) e falar: "Seu sucessor não é mais o Item 492 (posição 2), agora é o Item 016 (posição 3)". A mesma coisa é feita na posição seguinte do elemento removido, avisando que seu elemento antecessor foi mudado.
 
 Desse jeito, podemos fazer remoções e adições de elementos nas posições menores. Mas esse processo pode ser menos eficiente de acordo que as posições alteradas são mais altas, já que como vimos, o **LinkedList** precisa iterar por cada elemento até chegar na posição desejada.
 
-Então se você não vai remoções ou adições de elementos em posições baixas na lista, use **ArrayList** por seu fácil acesso aos elementos.
+Então se você não vai fazer remoções ou adições de elementos em posições baixas na lista, use **ArrayList** por seu fácil acesso aos elementos.
 
 Caso você precisa fazer remoções e adições de elementos em posições baixas na lista, então é recomendado usar **LinkedList** por sua fácil manipulação de elementos.
 
-Mas caso você não esteja certo, você pode testar os 2 sem fazer muita manutenção usando **polimorfismo**.
+Se você não tiver certeza sobre qual usar, você pode testar os 2 sem fazer muita manutenção usando **polimorfismo**.
 
-Como vimos mais cedo, declaramos uma variável como **List** ao invés de **ArrayList** ou **LinkedList** pois ambos compartilham dos mesmos métodos da interface **List**. Em casos assim, sempre é uma boa prática usar o tipo mais genérico possível para cada caso, pois assim você poupa dores de cabeça mais na frente.
+Como vimos mais cedo, declaramos uma variável como **List** ao invés de **ArrayList** ou **LinkedList** pois ambos compartilham dos mesmos métodos da interface **List**. Em casos assim, sempre é uma boa prática usar o tipo mais genérico possível que a situação permitir, pois assim você poupa dores de cabeça mais na frente.
 
 Java saber se a lista é **ArrayList** ou **LinkedList** não importa, o que importa é que as duas fazem as mesmas operações e retornam os mesmos resultados, apenas fazem isso de jeitos diferentes.
 
