@@ -2,7 +2,7 @@
 
 As Lists, como deve imaginar, é uma coleção ordenada de elementos. Esses elementos podem variar em tipos de dados diferentes, como String, int, long, boolean e classes.
 
-## Apresentando arrays
+## Iniciando com arrays
 
 Criamos uma array usando desse jeito:
 
