@@ -1,8 +1,5 @@
 package br.com.lists.test;
 
-import java.util.Calendar;
-import java.util.Date;
-
 public class Book implements Comparable<Book> {
 	private String author;
 	private String title;
